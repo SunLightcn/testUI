@@ -1,0 +1,149 @@
+﻿<Window x:Class="testUI.main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:testUI"
+        mc:Ignorable="d"
+        Title="main" Height="600" Width="800" Background="#FFEACBCB">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="MinWidth" Value="100"></Setter>
+            <Setter Property="MinHeight" Value="40"></Setter>
+            <Setter Property="Cursor" Value="Hand"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <!--<Border BorderThickness="1" BorderBrush="Black" CornerRadius="8"   
+                             Background="{TemplateBinding Background}"  
+                             Margin="{TemplateBinding Margin}"  
+                             Padding="{TemplateBinding Padding}"  
+                             MinWidth="{TemplateBinding MinWidth}"   
+                             MinHeight="{TemplateBinding MinHeight}"  
+                             HorizontalAlignment="{TemplateBinding HorizontalAlignment}"   
+                             VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                                <TextBlock Foreground="{TemplateBinding Foreground}" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}"    
+                                    FontSize="{TemplateBinding FontSize}" FontFamily="{TemplateBinding FontFamily}" Text="{TemplateBinding Content}"></TextBlock>
+                        </Border>-->
+                        <Border x:Name="border"  BorderThickness="1" BorderBrush="#68B0E8"  CornerRadius="0.5" 
+                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="{TemplateBinding Padding}"
+                            Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                            <Border.Background>
+                                <LinearGradientBrush x:Name="librush1" EndPoint="0,1" StartPoint="0,0">
+                                    <GradientStop x:Name="c1" Color="#FF8EC8C1" Offset="0.5" />
+                                    <GradientStop x:Name="c2" Color="#FF418B98" Offset="0.8" />
+                                    <GradientStop x:Name="c3" Color="#FFC688D3" Offset="1" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Label x:Name="lbContent" Content="{TemplateBinding Content}" Background="Transparent" Height="{TemplateBinding Height}"
+                               VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <!--<Setter Property="Background" TargetName="border" Value="{DynamicResource window_Button_MouseOver}"></Setter>-->
+                                <Setter Property="Background" TargetName="border" Value="Red"></Setter>
+                                <Setter Property="Foreground" TargetName="lbContent" Value="White"></Setter>
+                                <Setter Property="Height" TargetName="border" Value="60"></Setter>
+
+                                <!--<Setter Property="Color" TargetName="c1" Value="#FFC688D3"></Setter>-->
+                                <!--<Setter Property="Opacity" TargetName="border" Value="0.6"></Setter>-->
+                            </Trigger>
+                            <!--<EventTrigger RoutedEvent="Button.Click">
+                                --><!--<Setter Property="Background" TargetName="border" Value="{DynamicResource window_Button_MouseOver}"></Setter>--><!--
+                                <Setter Property="Background" TargetName="border" Value="Red"></Setter>
+                                <Setter Property="Foreground" TargetName="lbContent" Value="White"></Setter>
+                                <Setter Property="Height" TargetName="border" Value="60"></Setter>
+
+                                --><!--<Setter Property="Color" TargetName="c1" Value="#FFC688D3"></Setter>-->
+                                <!--<Setter Property="Opacity" TargetName="border" Value="0.6"></Setter>--><!--
+                                <BeginStoryboard>
+
+                                    <Storyboard>
+
+
+
+                                        --><!-- Animate the movement of the button. --><!--
+
+                                        <ThicknessAnimation
+
+               Storyboard.TargetProperty="Margin" Duration="0:0:0.5" 
+
+               From="50,50,50,50" To="0,0,50,50" AutoReverse="True" />
+
+
+
+                                        --><!-- Animate shadow depth of the effect. -->
+
+                                        <!--<DoubleAnimation
+
+               Storyboard.TargetName="myDropShadowBitmapEffect"
+
+               Storyboard.TargetProperty="ShadowDepth"
+
+               From="0" To="30" Duration="0:0:0.5"
+
+               AutoReverse="True" />-->
+
+
+
+                                        <!-- Animate shadow softness of the effect. As 
+
+                   the Button appears to get farther from the shadow, 
+
+                   the shadow gets softer. -->
+
+                                        <!--<DoubleAnimation
+
+               Storyboard.TargetName="myDropShadowBitmapEffect"
+
+               Storyboard.TargetProperty="Softness"
+
+               From="0" To="1" Duration="0:0:0.5"
+
+               AutoReverse="True" />--><!--
+
+                                    </Storyboard>
+
+                                </BeginStoryboard>
+
+                            </EventTrigger>-->
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="16*"/>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="236*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="31*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <TextBlock Grid.Row="0" Text="当前用户：" />
+        <TextBlock Grid.Row="1" Text="管理员" />
+
+        <StackPanel Grid.Row="2" >
+            <Button Content="短信发送" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10,1"/>
+            <Button Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.InfoBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" Content="短信管理" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10,1"/>
+
+            <Button Content="模板管理" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10,1" Background="#FFDB5E5E"/>
+            <Button Content="通讯管理" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10,1" Background="#FF59C072"/>
+            <Button Content="通讯录管理" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10,1" Background="#FF8066B4"/>
+            <Button Content="系统日志" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10,1"/>
+            <Button Content="系统设置" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10,1"/>
+            <Button Content="退出登陆" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10,1"/>
+
+        </StackPanel>
+    </Grid>
+</Window>
